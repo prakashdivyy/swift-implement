@@ -49,11 +49,14 @@ $app->get('/gallery', function () use ($app, $container){
     $app->render('gallery.php',array('Objects' => $ConnectionListResponse));
 });
 $app->post('/copyFile', function () use ($app, $container, $Connection){
-    $filename = $app->request->params('filename');
+    $filename = $app->request->params('filename');    
     $bucket_source = $app->request->params('bucket_source');
     $filename_new = $app->request->params('filename_new');
     $bucket_destination = $app->request->params('bucket_destination');
+    echo $filename . " " . $bucket_source . " " . $filename_new . " " . $bucket_destination;
     $object = $container->remoteObject($filename);
+
+
     $copy = $container->copy($object,$filename_new,$bucket_destination);
     if ($copy) {
         $app->redirect('gallery');
