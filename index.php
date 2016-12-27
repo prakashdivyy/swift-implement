@@ -46,7 +46,7 @@ $app->get('/gallery',function () use ($app, $container){
     $ConnectionListResponse = $container->objects();
     $app->render('gallery.php',array('Objects' => $ConnectionListResponse));
 });
-$app->get('/delete:filename',function ($filename) use ($app, $container){
+$app->get('/delete/:filename',function ($filename) use ($app, $container){
     $exist = count($container->objectsWithPrefix($filename));
     if ($exist) {
         $delete = $container->delete($filename);
