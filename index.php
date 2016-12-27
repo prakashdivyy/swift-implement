@@ -48,11 +48,24 @@ $app->get('/gallery', function () use ($app, $container){
     $ConnectionListResponse = $container->objects();
     $app->render('gallery.php',array('Objects' => $ConnectionListResponse));
 });
-$app->get('/copy/:filename/:buckets', function ($filename,$buckets) use ($app, $container){
-    $exist = count($container->objectsWithPrefix($filename));
+$app->post('/copyFile', function () use ($app, $container, $Connection){
+    $filename = $app->request->params('filename');
+    $bucket_source = $app->request->params('bucket_source');
+    $filename_new = $app->request->params('filename_new');
+    $bucket_destination = $app->request->params('bucket_destination');
     $object = $container->object($filename);
+    $copy = $container->copy($object,$filename_new,$bucket_destination);
+    if ($copy) {
+        $app->redirect('gallery');
+    } else {
+        $app->redirect('gallery');
+    }
+});
+$app->get('/copy/:filename', function ($filename) use ($app, $container, $Connection){
+    $buckets = $Connection->containers();
+    $exist = count($container->objectsWithPrefix($filename));
     if ($exist) {
-        $copy = $container->copy($object,$filename,$buckets);
+        $app->render('copy.php', array('filename' => $filename,'bucket_source' => BUCKET_NAME, 'Buckets' => $buckets));
     }
 });
 $app->get('/delete/:filename', function ($filename) use ($app, $container){

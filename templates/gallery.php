@@ -38,6 +38,7 @@
         <?php
         foreach ($Objects as $Object) {
             echo "<a href='https://grup2-ceph-04.sisdis.ui.ac.id/my-new-bucket/".$Object->name()."'> ".$Object->name()."</a>";
+            echo "<a href='http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/copy/".$Object->name()."'><i class='material-icons'>content_copy</i></a>";
             echo "<a href='http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/delete/".$Object->name()."'><i class='material-icons'>delete</i></a><br/>";
         }
         ?>
@@ -84,16 +85,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   <script src="http://materializecss.com/templates/starter-template/js/init.js"></script>
   <?php
-    if (isset($success) && isset($filename)) {
-      if ($success){?>
+  if (isset($success) && isset($filename)) {
+      if ($success){
+        ?>
         <script>
-            var $toastContent = $('<span>File '.$filename.' has succesfully been deleted</span>');
+            var $toastContent = $('<span>File <?php echo $filename; ?> has succesfully been deleted</span>');
             Materialize.toast($toastContent, 3000);
         </script>
-  <?php
-      } else { ?>
+  <?php } else {
+        ?>
         <script>
-            var $toastContent = $('<span>Error occured when deleting '.$filename.' </span>');
+            var $toastContent = $('<span>Error occured when deleting <?php echo $filename; ?> </span>');
             Materialize.toast($toastContent, 3000);
         </script>
   <?php
