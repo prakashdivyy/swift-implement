@@ -11,7 +11,7 @@ Bootstrap::useAutoloader();
 define('SWIFT_USERNAME', 'grup2:swift');
 define('SWIFT_KEY', 'kXzTDbsG2eq810Hhm6PyU7SpHoUPmeXOHObMoQpg');
 define('SWIFT_AUTH_URL', 'https://grup2-ceph-04.sisdis.ui.ac.id/auth');
-define('BUCKET_NAME', 'my-new-bucket');
+define('BUCKET_NAME', 'imp-swift');
 
 $Connection = ObjectStorage::newFromSwiftAuth(SWIFT_USERNAME, SWIFT_KEY, SWIFT_AUTH_URL);
 $container = $Connection->container(BUCKET_NAME);
