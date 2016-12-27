@@ -16,6 +16,7 @@ define('BUCKET_NAME', 'my-new-bucket');
 $Connection = ObjectStorage::newFromSwiftAuth(SWIFT_USERNAME, SWIFT_KEY, SWIFT_AUTH_URL);
 $container = $Connection->container(BUCKET_NAME);
 
+
 $app = new \Slim\Slim();
 
 $app->get('/', function () use ($app) {
@@ -37,14 +38,21 @@ $app->post('/', function () use ($app, $container) {
     }
 });
 
-$app->get('/setup', function () use ($Connection) {
+//$app->get('/setup', function () use ($Connection) {
     //$acl = ACL::makePublic();
     //$Connection->deleteContainer('my-new-bucket');
     //$Connection->createContainer('my-new-bucket', $acl);
-});
+//});
 $app->get('/gallery', function () use ($app, $container){
     $ConnectionListResponse = $container->objects();
     $app->render('gallery.php',array('Objects' => $ConnectionListResponse));
+});
+$app->get('/copy/:filename/:buckets', function ($filename,$buckets) use ($app, $container){
+    $exist = count($container->objectsWithPrefix($filename));
+    $object = $container->object($filename);
+    if ($exist) {
+        $copy = $container->copy($object,$filename,$buckets);
+    }
 });
 $app->get('/delete/:filename', function ($filename) use ($app, $container){
     $exist = count($container->objectsWithPrefix($filename));
