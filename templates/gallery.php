@@ -16,14 +16,14 @@
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Kelompok 2 Sisdis</a>
       <ul class="right hide-on-med-and-down">
-            <li><a href="/imp-swift/">Home</a></li>
-            <li><a href="/imp-swift/gallery">Gallery</a></li>
-            <li><a href="grup2-ceph-04.sisdis.ui.ac.id/imp-s3/">S3</a></li>
+            <li><a href="imp-swift/">Home</a></li>
+            <li><a href="imp-swift/gallery">Gallery</a></li>
+            <li><a href="../imp-s3/">S3</a></li>
       </ul> 
       <ul id="nav-mobile" class="side-nav">
-            <li><a href="/imp-swift/">Home</a></li>      
-            <li><a href="/imp-swift/gallery">Gallery</a></li>
-            <li><a href="grup2-ceph-04.sisdis.ui.ac.id/imp-s3/">S3</a></li>
+            <li><a href="imp-swift/">Home</a></li>      
+            <li><a href="imp-swift/gallery">Gallery</a></li>
+            <li><a href="../imp-s3/">S3</a></li>
       </ul> 
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -33,7 +33,7 @@
       <br><br>
       <h1 class="header center orange-text">Swift - Object Storage System</h1>
       <div class="row center">
-        <h5 class="header col s12 light">Your file has successfully uploaded:</h5>
+        <h5 class="header col s12 light">Here is the list of all files in this bucket:</h5>
       </div>
 
       <div class="row center">
