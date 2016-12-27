@@ -38,7 +38,7 @@
         <?php
         foreach ($Objects as $Object) {
             echo "<a href='https://grup2-ceph-04.sisdis.ui.ac.id/my-new-bucket/".$Object->name()."'> ".$Object->name()."</a>";
-            echo "<a href='http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/copy/".$Object->name()."'><i class='material-icons'>content_copy</i></a>";
+            echo "<a href='http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/copy/".$Object->name()."'><i class='material-icons'>content_copy</i></a>";
             echo "<a href='http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/delete/".$Object->name()."'><i class='material-icons'>delete</i></a><br/>";
         }
         ?>
