@@ -53,7 +53,8 @@ $app->post('/copyFile', function () use ($app, $container, $Connection){
     $bucket_source = $app->request->params('bucket_source');
     $filename_new = $app->request->params('filename_new');
     $bucket_destination = $app->request->params('bucket_destination');
-    echo $filename . " " . $bucket_source . " " . $filename_new . " " . $bucket_destination;
+
+    echo " anjay ".$filename . " " . $bucket_source . " " . $filename_new . " " . $bucket_destination;
     $object = $container->remoteObject($filename);
 
 
