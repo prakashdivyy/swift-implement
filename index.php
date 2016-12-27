@@ -44,7 +44,19 @@ $app->get('/setup', function () use ($Connection) {
 });
 $app->get('/gallery',function () use ($app, $container){
     $ConnectionListResponse = $container->objects();
-    $app->render('gallery.php',array('Objects'=>$ConnectionListResponse));
+    $app->render('gallery.php',array('Objects' => $ConnectionListResponse));
+});
+$app->get('/delete:filename',function ($filename) use ($app, $container){
+    $exist = count($container->objectsWithPrefix($filename));
+    if ($exist) {
+        $delete = $container->delete($filename);
+        $ConnectionListResponse = $container->objects();
+        if ($delete) {
+            $app->render('gallery.php',array('filename' => $filename,'success' => 1, 'Objects' => $ConnectionListResponse));    
+        } else {
+            $app->render('gallery.php',array('filename' => $filename,'success' => 0, 'Objects' => $ConnectionListResponse));
+        }
+    } 
 });
 
 $app->run();

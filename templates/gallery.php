@@ -20,7 +20,7 @@
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="templates/home.php">Home</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -37,7 +37,7 @@
         <?php
         foreach ($Objects as $Object) {
             echo "<a href='https://grup2-ceph-04.sisdis.ui.ac.id/my-new-bucket/".$Object->name()."'> ".$Object->name()."</a>";
-            //echo "<a href='http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/delete/".$Object->Key."'><i class='material-icons'>delete</i></a><br/>";
+            echo "<a href='http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/delete/".$Object->name()."'><i class='material-icons'>delete</i></a><br/>";
         }
         ?>
       </div>
