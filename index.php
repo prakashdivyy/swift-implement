@@ -53,7 +53,7 @@ $app->post('/copyFile', function () use ($app, $container, $Connection){
     $bucket_source = $app->request->params('bucket_source');
     $filename_new = $app->request->params('filename_new');
     $bucket_destination = $app->request->params('bucket_destination');
-    $object = $container->proxyObject($filename);
+    $object = $container->remoteObject($filename);
     $copy = $container->copy($object,$filename_new,$bucket_destination);
     if ($copy) {
         $app->redirect('gallery');
