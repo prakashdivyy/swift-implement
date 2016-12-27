@@ -43,6 +43,7 @@ $app->post('/', function () use ($app, $container) {
     //$Connection->deleteContainer('my-new-bucket');
     //$Connection->createContainer('my-new-bucket', $acl);
 //});
+
 $app->get('/gallery', function () use ($app, $container){
     $ConnectionListResponse = $container->objects();
     $app->render('gallery.php',array('Objects' => $ConnectionListResponse));

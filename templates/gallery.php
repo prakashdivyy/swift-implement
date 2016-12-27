@@ -4,7 +4,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Object Storage System</title>
-
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" type="text/css"
@@ -16,14 +15,14 @@
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Kelompok 2 Sisdis</a>
       <ul class="right hide-on-med-and-down">
-            <li><a href="../imp-swift/">Home</a></li>
-            <li><a href="../imp-swift/gallery">Gallery</a></li>
-            <li><a href="../imp-s3/">S3</a></li>
+            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/">Home</a></li>
+            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/gallery">Gallery</a></li>
+            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/">S3</a></li>
       </ul> 
       <ul id="nav-mobile" class="side-nav">
-            <li><a href="../imp-swift/">Home</a></li>      
-            <li><a href="../imp-swift/gallery">Gallery</a></li>
-            <li><a href="../imp-s3/">S3</a></li>
+            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/">Home</a></li>
+            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/gallery">Gallery</a></li>
+            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/">S3</a></li>
       </ul> 
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -35,7 +34,6 @@
       <div class="row center">
         <h5 class="header col s12 light">Here is the list of all files in this bucket:</h5>
       </div>
-
       <div class="row center">
         <?php
         foreach ($Objects as $Object) {
@@ -44,22 +42,14 @@
         }
         ?>
       </div>
-
       <br><br>
-
     </div>
   </div>
-
-
   <div class="container">
-
     <br><br>
-
     <div class="section">
-
     </div>
   </div>
-
   <footer class="page-footer orange">
     <div class="container">
       <div class="row">
@@ -69,11 +59,9 @@
             - Prakash Divy<br>
             - Desi Ratna Mukti<br>
             - Kevin Aditya Prabowo<br>
-            - Fauzan Azhari</p>
-
-
+            - Fauzan Azhari
+          </p>
         </div>
-
         <div class="col l3 s12">
           <h5 class="white-text">NPM</h5>
           <ul>
@@ -91,8 +79,6 @@
       </div>
     </div>
   </footer>
-
-
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
