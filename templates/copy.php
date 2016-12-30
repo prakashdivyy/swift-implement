@@ -15,14 +15,14 @@
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Kelompok 2 Sisdis</a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/">Home</a></li>
-            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/gallery">Gallery</a></li>
-            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/">S3</a></li>
+          <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/">Home</a></li>
+          <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/gallery">Gallery</a></li>
+          <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/">S3</a></li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/">Home</a></li>
-            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/gallery">Gallery</a></li>
-            <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/">S3</a></li>
+          <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/">Home</a></li>
+          <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-swift/gallery">Gallery</a></li>
+          <li><a href="http://grup2-ceph-04.sisdis.ui.ac.id/imp-s3/">S3</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -30,26 +30,25 @@
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-        <h1 class="header center orange-text">Swift - Object Storage System</h1>
-        <div class="row center">
-            <h5 class="header col s12 light">Tugas Akhir Kelompok Sisdis</h5>
-        </div>
-        <div class="row center">
-            <form action="" method="POST" id="data" enctype="multipart/form-data">
-                <div class="file-field input-field">
-                    <div class="btn orange">
-                        <span>File</span>
-                        <input type="file" name="fileToUpload" id="fileToUpload">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload a file...">
-                    </div>
-                </div>
-            </form>
-            <button type="submit" form="data" id="download-button" class="btn-large waves-effect waves-light orange">
-                Upload File <i class="material-icons right">send</i>
-            </button>
-        </div>
+        <form action="../copyFile" method="POST" id="data" enctype="multipart/form-data">
+          <div class="file-field input-field">
+            <input type="text" name="filename" value="<?php echo $filename; ?>" disabled>
+            <input type="text" name="bucket_source" value="<?php echo $bucket_source; ?>" disabled>
+            <input type="text" name="filename_new">
+            <select name="bucket_destination">
+              <?php
+              foreach ($Buckets as $Bucket) {
+                  echo "<option value='".$Bucket->name()."'>".$Bucket->name()."</option>";
+              }
+              ?>
+            </select>
+          </div>
+          <button type="submit" form="data" id="download-button" class="btn-large waves-effect waves-light orange">
+              Copy File <i class="material-icons right">send</i>
+          </button>
+        </form>
+
+
         <br><br>
     </div>
 </div>
@@ -91,11 +90,10 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script src="http://materializecss.com/templates/starter-template/js/init.js"></script>
-<?php if ($error) { ?>
-    <script>
-        var $toastContent = $('<span>File exist</span>');
-        Materialize.toast($toastContent, 3000);
-    </script>
-<?php } ?>
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
 </body>
 </html>
